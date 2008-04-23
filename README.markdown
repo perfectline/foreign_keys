@@ -9,21 +9,25 @@ Currently, the only connection adapter supported is mysql.
 Installation
 ------------
 
-You can install in the usual manner:
+Via standard git clone:
 
-    script/plugin install http://github.com/dwalters/foreign_keys.git
+    git clone git://github.com/dwalters/foreign_keys.git vendor/plugins/foreign_keys
+
+Via rails plugin (requires 2.1):
+
+    script/plugin install git://github.com/dwalters/foreign_keys.git
 
 Adding Foreign Keys
 -------------------
 
-The simplest example is the below:
+Just place the appropriate statements in your migrations.  The simplest example is:
 
     add_foreign_key :orders, :user_id
 
 The usual rails conventions are used to deduce that this should result in a
 foreign key from the `orders.user_id` column to the `users.id` column
 
-Of course, you can specify these values explicitly too, and will need to when
+Of course, you may specify these values explicitly too, and will need to when
 the conventions don't match exactly:
 
     add_foreign_key :articles, :author_id, :references => :users
@@ -53,9 +57,15 @@ Or the name can be deduced if you used standard conventions when you created it:
 
 This will not automatically remove any indexes.
 
+Schema Dump
+-----------
+
+The usual rake targets for `db:schema:dump`, `db:schema:load`, and `db:reset`
+should all work as desired.
+
 Author
 ------
 
 Dan Walters
 
-<http://github.com/dwalters/foreign-keys>
+<http://github.com/dwalters/foreign_keys>
