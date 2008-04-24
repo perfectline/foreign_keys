@@ -3,7 +3,7 @@ ActiveRecord::ConnectionAdapters::MysqlAdapter.class_eval do
     sql = execute("SHOW CREATE TABLE #{quote_table_name(table_name)}").fetch_hash["Create Table"]
 
     foreign_keys = []
-    sql.scan(/CONSTRAINT `([^`]+)` FOREIGN KEY \((.*?)\) REFERENCES `([^`]+)` \((.*?)\)( ON DELETE (.*?))?( ON UPDATE (.*?))?[,\)\n]/) do |name, column_list, references, key_list, ignore1, on_update, ignore2, on_delete|
+    sql.scan(/CONSTRAINT `(\w+)` FOREIGN KEY \((.*?)\) REFERENCES `(\w+)` \((.*?)\)(?:\s+ON DELETE\s+(.*?))?(?:\s+ON UPDATE\s+(.*?))?[,\)\n]/) do |name, column_list, references, key_list, on_delete, on_update|
       columns = []; column_list.scan(/`(\w+)`/) { |match| columns << match.first }
       keys = []; key_list.scan(/`(\w+)`/) { |match| keys << match.first }
 
