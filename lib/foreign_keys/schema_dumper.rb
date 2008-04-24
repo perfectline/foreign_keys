@@ -18,7 +18,7 @@ ActiveRecord::SchemaDumper.class_eval do
   end
 
   def foreign_keys(table, stream)
-    foreign_keys = @connection.foreign_keys(table)
+    foreign_keys = @connection.foreign_keys(table).sort { |a, b| a[:columns] <=> b[:columns] }
     foreign_keys.each do |foreign_key|
       stream.print "  add_foreign_key #{table.inspect}, #{foreign_key[:columns].inspect}"
       stream.print ", :references => #{foreign_key[:references].inspect}" if foreign_key[:references] && foreign_key[:references] != foreign_key[:columns].first.gsub(/_id$/, '').tableize
