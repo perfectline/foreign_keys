@@ -4,7 +4,7 @@ Foreign Keys Plugin
 This plugin adds basic support for foreign keys, by providing some additional
 schema statements as well as integration into the standard schema dumper.
 
-Currently, the only connection adapter supported is mysql.
+Currently, mysql and postgresql connection adapters are supported.
 
 Installation
 ------------
@@ -69,3 +69,5 @@ Author
 Dan Walters
 
 <http://github.com/dwalters/foreign_keys>
+
+Max Lapshin -- PostgreSQL support
