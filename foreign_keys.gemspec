@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{foreign_keys}
-  s.version = "1.0.0"
+  s.version = "1.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dan Walters"]
@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
      "README.markdown",
      "Rakefile",
      "VERSION.yml",
+     "foreign_keys.gemspec",
      "init.rb",
      "lib/foreign_keys/mysql_adapter.rb",
      "lib/foreign_keys/postgresql_adapter.rb",
