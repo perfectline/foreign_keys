@@ -10,7 +10,7 @@ ActiveRecord::SchemaDumper.class_eval do
         else
           raise StandardError, 'ActiveRecord::SchemaDumper.ignore_tables accepts an array of String and / or Regexp values.'
         end
-      end 
+      end
     end
 
     table_names.each { |tbl| table(tbl, stream) }

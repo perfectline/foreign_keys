@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dan Walters"]
-  s.date = %q{2009-05-25}
+  s.date = %q{2009-05-26}
   s.description = %q{Foreign key support plugin for Rails and MySQL, with schema dumper integration}
   s.extra_rdoc_files = [
     "README.markdown"
@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
      "VERSION.yml",
      "foreign_keys.gemspec",
      "init.rb",
+     "lib/foreign_keys.rb",
      "lib/foreign_keys/mysql_adapter.rb",
      "lib/foreign_keys/postgresql_adapter.rb",
      "lib/foreign_keys/schema_dumper.rb",
