@@ -56,8 +56,7 @@ should all work as desired.
 Authors
 ---------------
 
-**Tanel Suurhans** - tanel.suurhans_at_perfectline_d0t_ee
-
+**Tanel Suurhans** - tanel.suurhans_at_perfectline_d0t_ee  
 **Tarmo Lehtpuu** - tarmo.lehtpuu_at_perfectline_d0t_ee
 
 License
