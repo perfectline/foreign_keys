@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{foreign_keys}
-  s.version = "1.2.0"
+  s.version = "2.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Tanel Suurhans", "Tarmo Lehtpuu"]
-  s.date = %q{2009-11-20}
+  s.date = %q{2009-11-23}
   s.description = %q{Foreign key support plugin for Rails, with schema dumper integration}
   s.email = ["tanel.suurhans@perfectline.ee", "tarmo.lehtpuu@perfectline.ee"]
   s.extra_rdoc_files = [
