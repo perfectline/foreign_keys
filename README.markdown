@@ -59,6 +59,8 @@ Authors
 **Tanel Suurhans** - tanel.suurhans_at_perfectline.ee
 **Tarmo Lehtpuu** - tarmo.lehtpuu_at_perfectline.ee
 
+This gem is based ideas and enhanchements from Dan Walters "foreign_keys" plugin-
+
 License
 --------------
 Copyright 2009 by PerfectLine LLC (<http://www.perfectline.co.uk>) and is released under the MIT license.
