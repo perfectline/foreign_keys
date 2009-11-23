@@ -5,11 +5,14 @@ require 'rake/rdoctask'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |jewel|
-    jewel.name = 'foreign_keys'
-    jewel.summary = 'Foreign key sypport for Rails (MySQL, PostgreSQL)'
-    jewel.homepage = 'http://github.com/dwalters/foreign_keys/tree/master'
-    jewel.description = 'Foreign key support plugin for Rails and MySQL, with schema dumper integration'
-    jewel.authors = ["Dan Walters"]
+    jewel.name        = 'foreign_keys'
+    jewel.summary     = 'Foreign key support for Rails'
+    jewel.email       = ['tanel.suurhans@perfectline.ee', 'tarmo.lehtpuu@perfectline.ee']
+    jewel.homepage    = 'http://github.com/perfectline/foreign_keys/tree/master'
+    jewel.description = 'Foreign key support plugin for Rails, with schema dumper integration'
+    jewel.authors     = ["Tanel Suurhans", "Tarmo Lehtpuu"]
+    jewel.files       = FileList["lib/**/*.rb", "*.rb", "MIT-LICENCE", "README.markdown"]
+
   end
 rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"

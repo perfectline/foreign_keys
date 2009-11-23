@@ -1,73 +1,64 @@
-Foreign Keys Plugin
+Foreign Keys 
 ===================
 
-This plugin adds basic support for foreign keys, by providing some additional
-schema statements as well as integration into the standard schema dumper.
-
-Currently, mysql and postgresql connection adapters are supported.
+Add foreign key functionality for Rails migrations and schema dumps.
+MySQL and PostgreSQL adapters supported.
 
 Installation
 ------------
 
-Via standard git clone:
+As Rails gem (from GemCutter)
 
-    git clone git://github.com/dwalters/foreign_keys.git vendor/plugins/foreign_keys
+    sudo gem install foreign_keys
 
-Via rails plugin (requires 2.1):
+As Rails plugin
 
-    script/plugin install git://github.com/dwalters/foreign_keys.git
+    script/plugin install git://github.com/perfectline/foreign_keys.git
 
-Adding Foreign Keys
+Quickstart
 -------------------
 
-Just place the appropriate statements in your migrations.  The simplest example is:
+Just place the FK statements in your migrations.  The simplest example is:
 
-    add_foreign_key :orders, :user_id
+    add_foreign_key :albums, :user_id
 
-The usual rails conventions are used to deduce that this should result in a
-foreign key from the `orders.user_id` column to the `users.id` column
+The referenced table and column are decidec by using rails conventions, i.e this
+example would result in a foreign key from 'albums.user_id' to 'users.id' column.
 
-Of course, you may specify these values explicitly too, and will need to when
-the conventions don't match exactly:
+You can additionally provide multiple options for cases where the association information cannot
+be decided by conventions.
 
-    add_foreign_key :articles, :author_id, :references => :users
+    add_foreign_key :albums, :author_id, :references => :users, :keys => :user_id, :name => "my_special_fk"
 
-Some other options of note:
+Removing foreign keys is just as easy.
+You can remove them either by providing the constraint name or column(s).
 
-* `references`: the name of the referenced table
-* `keys`: the corresponding column name(s) in the referenced table
-* `on_delete` / `on_update`: one of `:restrict`, `:set_null`, `:cascade`
-* `name`: the name to assign to the foreign key constraint
+    remove_foreign_key :albums, :user_id
+    remove_foreign_key :albums, :name => "my_special_fk"
 
-Note that recent mysql versions will create an index on the referenced
-column(s) if one does not already exist.
+Note: MySQL creates an index on the FK column automatically. Removing a FK will remove that index also.
 
-You may wish to check the documentation for further options.
+Options
+-------------------
 
-Removing Foreign Keys
----------------------
-
-You can remove foreign keys by name:
-
-    remove_foreign_key :orders, :name => "index_orders_on_user_id"
-
-Or the name can be deduced if you used standard conventions when you created it:
-
-    remove_foreign_key :orders, :user_id
-
-This will not automatically remove any indexes.
+* **references**: name of the references table
+* **keys**: column name(s) on the references table
+* **on_delete**: on delete hook with a value of `:restrict`, `:set_null`, `:cascade`
+* **on_update**: on update hook with a value of `:restrict`, `:set_null`, `:cascade`
+* **name**: foreign key constraint name
 
 Schema Dump
------------
+---------------
 
 The usual rake targets for `db:schema:dump`, `db:schema:load`, and `db:reset`
 should all work as desired.
 
-Author
-------
+Authors
+---------------
 
-Dan Walters
+Tanel Suurhans - tanel.suurhans_at_perfectline.ee
+Tarmo Lehtpuu - tarmo.lehtpuu_at_perfectline.ee
 
-<http://github.com/dwalters/foreign_keys>
-
-Max Lapshin -- PostgreSQL support
+License
+--------------
+Copyright 2009 by PerfectLine LLC (<http://www.perfectline.co.uk>) and is released under the MIT license.
