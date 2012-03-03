@@ -1,6 +1,6 @@
 require 'active_record'
-# require 'active_record/connection_adapters/abstract_adapter'
-require 'active_record/connection_adapters/mysql_adapter'
+require 'active_record/connection_adapters/abstract_adapter'
+# require 'active_record/connection_adapters/mysql_adapter'
 require 'active_record/connection_adapters/postgresql_adapter'
 
 require "foreign_keys/connection_adapters/abstract"
