@@ -37,7 +37,7 @@ module Perfectline
             t.table_name = '#{table_name}'
           }
 
-          foreign_keys = returning({}) do |foreign_keys|
+          foreign_keys = {}.tap do |foreign_keys|
             select_all(sql).each do |row|
               if foreign_keys.has_key?(row["name"])
                 foreign_keys[row["name"]][:columns] << row["from_column"]
