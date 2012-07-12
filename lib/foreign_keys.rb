@@ -1,11 +1,11 @@
 require 'active_record'
 require 'active_record/connection_adapters/abstract_adapter'
-require 'active_record/connection_adapters/mysql_adapter'
-require 'active_record/connection_adapters/postgresql_adapter'
+require 'active_record/connection_adapters/mysql_adapter' if defined? Mysql
+require 'active_record/connection_adapters/postgresql_adapter' if defined? PG
 
 require "foreign_keys/connection_adapters/abstract"
-require "foreign_keys/connection_adapters/mysql"
-require "foreign_keys/connection_adapters/postgresql"
+require "foreign_keys/connection_adapters/mysql" if defined? Mysql
+require "foreign_keys/connection_adapters/postgresql" if defined? PG
 
 require "foreign_keys/schema_dumper"
 

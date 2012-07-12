@@ -19,11 +19,11 @@ module Perfectline
         def foreign_keys(table_name)
           sql = execute("SHOW CREATE TABLE #{quote_table_name(table_name)}").fetch_hash["Create Table"]
 
-          returning([]) do |fks|
+          [].tap do |fks|
             sql.scan(/CONSTRAINT `(\w+)` FOREIGN KEY \((.*?)\) REFERENCES `(\w+)` \((.*?)\)(?:\s+ON DELETE\s+(.*?))?(?:\s+ON UPDATE\s+(.*?))?[,\)\n]/) do |name, cols, refs, keys, delete, update|
 
-              cols = returning([]){ |array| cols.scan(/`(\w+)`/) { |match| array << match.first.to_sym }}
-              keys = returning([]){ |array| keys.scan(/`(\w+)`/) { |match| array << match.first.to_sym }}
+              cols = [].tap { |array| cols.scan(/`(\w+)`/) { |match| array << match.first.to_sym }}
+              keys = [].tap { |array| keys.scan(/`(\w+)`/) { |match| array << match.first.to_sym }}
 
               fks.push({
                       :name       => name,
